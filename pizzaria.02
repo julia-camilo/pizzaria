@@ -1,0 +1,79 @@
+pizzaria = ["chocolate", "marguerita", "quatro_queijos", "frango"]
+pedido = []
+pagar = []
+print("Bem vindo(a) à hedaju pizzas!! 🍕")
+print("O que deseja fazer? Escolha de acordo com as opções:")
+print("1. Ver o Cardápio 📜")
+print("2. Adicionar sabor ao pedido ➕")
+print("3. Remover algum sabor 💔")
+print("4. Excluir pedido ❌")
+print("5. Finalizar pedido ✔")
+print('6. Rever as opções 🔄')
+print("7. Ver seu pedido até o momento ⌚")
+
+chocolate = 35
+marguerita = 40
+quatro_queijos = 55
+frango = 45
+
+while True:
+  opcao = int (input("Opcao: "))
+
+  if opcao == 1:
+    print("Cardápio: ", pizzaria)
+
+  if opcao == 2 :
+     sabor = input("Que sabor deseja adicionar ao pedido: ")
+     pedido.append(sabor)
+     if sabor == "chocolate":
+      pagar.append(chocolate)
+     elif sabor == "marguerita":
+      pagar.append(marguerita)
+     elif sabor == "quatro_queijos":
+      pagar.append(quatro_queijos)
+     elif sabor == "frango":
+      pagar.append(frango)
+
+  elif sabor in range(len(pizzaria)):
+     while pedido not in pizzaria:
+      print('Este sabor não disponível')
+      pedido.clear()
+
+  elif opcao == 3:
+    remover = input('Qual sabor deseja remover do pedido: ')
+    pedido.remove(remover)
+    if remover == "chocolate":
+      pagar.remove(remover)
+    elif remover == "marguerita":
+      pagar.remove(remover)
+    elif remover == "quatro_queijos":
+      pagar.remove(remover)
+    elif remover == "frango":
+      pagar.remove(remover)
+    print(remover, "foi removido do pedido")
+
+  if opcao == 4:
+    pedido.clear()
+    pagar.clear()
+    print("Seu pedido foi excluído")
+
+  elif opcao == 5:
+    print(pedido)
+    total = sum(pagar)
+    print("Total: RS", total)
+
+  elif opcao == 6:
+    print("Seu pedido foi finalizado!!")
+    print("Obrigado pelo seu pedido!")
+    break
+
+  elif opcao == 7:
+    print("Bem vindo(a) à hedaju pizzas!! 🍕")
+    print("O que deseja fazer? Escolha de acordo com as opções:")
+    print("1. Ver o Cardápio 📜")
+    print("2. Adicionar sabor ao pedido ➕")
+    print("3. Remover algum sabor 💔")
+    print("4. Excluir pedido ❌")
+    print("5. Ver seu pedido até o momento ⌚")
+    print("6. Finalizar pedido ✔")
+    print('7. Rever as opções 🔄')
