@@ -7,9 +7,10 @@ print("1. Ver o Cardápio 📜")
 print("2. Adicionar sabor ao pedido ➕")
 print("3. Remover algum sabor 💔")
 print("4. Excluir pedido ❌")
-print("5. Finalizar pedido ✔")
-print('6. Rever as opções 🔄')
-print("7. Ver seu pedido até o momento ⌚")
+print("5. Ver seu pedido até o momento ⌚")
+print("6. Finalizar pedido ✔")
+print('7. Rever as opções 🔄')
+
 
 chocolate = 35
 marguerita = 40
@@ -17,42 +18,43 @@ quatro_queijos = 55
 frango = 45
 
 while True:
-  opcao = int (input("Opcao: "))
+  opcao = int(input("Opcao: "))
 
   if opcao == 1:
     print("Cardápio: ", pizzaria)
 
-  if opcao == 2 :
-     sabor = input("Que sabor deseja adicionar ao pedido: ")
-     pedido.append(sabor)
-     if sabor == "chocolate":
-      pagar.append(chocolate)
-     elif sabor == "marguerita":
-      pagar.append(marguerita)
-     elif sabor == "quatro_queijos":
-      pagar.append(quatro_queijos)
-     elif sabor == "frango":
-      pagar.append(frango)
-
-  elif sabor in range(len(pizzaria)):
-     while pedido not in pizzaria:
+  elif opcao == 2:
+    sabor = input("Que sabor deseja adicionar ao pedido: ")
+    if sabor in pizzaria:
+      pedido.append(sabor)
+      if sabor == "chocolate":
+        pagar.append(chocolate)
+      elif sabor == "marguerita":
+        pagar.append(marguerita)
+      elif sabor == "quatro_queijos":
+        pagar.append(quatro_queijos)
+      elif sabor == "frango":
+        pagar.append(frango)
+    else:
       print('Este sabor não disponível')
-      pedido.clear()
 
   elif opcao == 3:
     remover = input('Qual sabor deseja remover do pedido: ')
-    pedido.remove(remover)
-    if remover == "chocolate":
-      pagar.remove(remover)
-    elif remover == "marguerita":
-      pagar.remove(remover)
-    elif remover == "quatro_queijos":
-      pagar.remove(remover)
-    elif remover == "frango":
-      pagar.remove(remover)
-    print(remover, "foi removido do pedido")
+    if remover in pedido:
+      pedido.remove(remover)
+      if remover == "chocolate":
+        pagar.remove(chocolate)
+      elif remover == "marguerita":
+        pagar.remove(marguerita)
+      elif remover == "quatro_queijos":
+        pagar.remove(quatro_queijos)
+      elif remover == "frango":
+        pagar.remove(frango)
+      print(remover, "foi removido do pedido")
+    else:
+      print('Este sabor não está no pedido')
 
-  if opcao == 4:
+  elif opcao == 4:
     pedido.clear()
     pagar.clear()
     print("Seu pedido foi excluído")
